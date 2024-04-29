@@ -23,7 +23,7 @@ namespace csharp_lista_indirizzi
         {
             Utente = new(nomeUtente, cognomeUtente);
             if (street.Length <= 1 || city.Length <= 1 || state.Length != 2 || zip.Length < 5)
-                throw new ArgumentException("Il dato non ha un valore");
+                throw new ArgumentException("Il dato non ha un valore coerente");
             Street = street;
             City = city;
             State = state;
