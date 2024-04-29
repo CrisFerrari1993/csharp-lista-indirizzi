@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace csharp_lista_indirizzi
         public Indirizzo(string nomeUtente, string cognomeUtente ,string street, string city, string state, string zip)
         {
             Utente = new(nomeUtente, cognomeUtente);
+            if (street.Length <= 1 || city.Length <= 1 || state.Length != 2 || zip.Length < 5)
+                throw new ArgumentException("Il dato non ha un valore");
             Street = street;
             City = city;
             State = state;

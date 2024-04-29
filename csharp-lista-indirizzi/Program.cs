@@ -7,14 +7,14 @@
             //instanzio una lista di indirizzi presi da un path e assegno il return della funzione come valore della lista
             List<Indirizzo> listaIndirizzi = LeggoFile("C:\\Users\\ferra\\Documents\\File\\addresses.csv");
             //stampo gli indirizzi presi dal file
-            foreach(var indirizzo in listaIndirizzi)
-            {
-                Console.WriteLine(indirizzo);
-            }
+            //foreach(var indirizzo in listaIndirizzi)
+            //{
+            //    Console.WriteLine(indirizzo);
+            //}
 
             // creo file per bonus
             var indirizzi = LeggoFile("C:\\Users\\ferra\\Documents\\File\\addresses.csv");
-            StampaFileTesto(indirizzi, "C:\\Users\\ferra\\Documents\\File\\addresses.txt");
+            StampaFileTesto(indirizzi, "C:\\Users\\ferra\\Documents\\File\\addresses2.txt");
             
         }
 
@@ -39,18 +39,18 @@
                 {
                     var dato = linea.Split(',');
                     //logica per inserire solo dati corretti (non proprio mega stringente...)
-                    if (dato[2].Length > 1 && dato[3].Length > 1 && dato[4].Length == 2 && dato[5].Length >= 5)
-                    {
-                        string nomeUtente = dato[0];
-                        string cognomeUtente = dato[1];
-                        string street = dato[2];
-                        string city = dato[3];
-                        string state = dato[4];
-                        string zip = dato[5];
 
-                        Indirizzo indirizzo = new(nomeUtente, cognomeUtente, street, city, state, zip);
-                        indirizzi.Add(indirizzo);
-                    }  
+
+                    string nomeUtente = dato[0];
+                    string cognomeUtente = dato[1];
+                    string street = dato[2];
+                    string city = dato[3];
+                    string state = dato[4];
+                    string zip = dato[5];
+
+                    Indirizzo indirizzo = new(nomeUtente, cognomeUtente, street, city, state, zip);
+                    indirizzi.Add(indirizzo);
+
                 }
                 //stampo tipo di errore in console
                 catch (Exception e)
