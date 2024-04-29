@@ -53,9 +53,13 @@
 
                 }
                 //stampo tipo di errore in console
-                catch (Exception e)
+                catch (CampoVuoto e)
                 {
-                    Console.WriteLine("Error: " + e.Message);
+                    Console.WriteLine("Errore: i campi inseriti non sono corretti");
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("Errore: " + " " + e.Message);
                 }
             }
             stream.Dispose();

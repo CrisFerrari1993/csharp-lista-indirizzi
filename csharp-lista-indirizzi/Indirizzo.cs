@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace csharp_lista_indirizzi
 {
+    public class CampoVuoto: Exception
+    {
+
+    }
     public class Indirizzo
     {
         //Bonus: iterare la lista di indirizzi e risalvarli in un file.
@@ -21,13 +25,16 @@ namespace csharp_lista_indirizzi
 
         public Indirizzo(string nomeUtente, string cognomeUtente ,string street, string city, string state, string zip)
         {
-            Utente = new(nomeUtente, cognomeUtente);
-            if (street.Length <= 1 || city.Length <= 1 || state.Length != 2 || zip.Length < 5)
-                throw new ArgumentException("Il dato non ha un valore coerente");
-            Street = street;
-            City = city;
-            State = state;
-            Zip = zip;
+            if (nomeUtente.Length < 1 || cognomeUtente.Length < 1 || street.Length <= 1 || city.Length <= 1 || state.Length != 2 || zip.Length < 5)
+                throw new CampoVuoto();
+            else
+            {
+                Utente = new(nomeUtente, cognomeUtente);
+                Street = street;
+                City = city;
+                State = state;
+                Zip = zip;
+            }
         }
 
         public override string ToString()
