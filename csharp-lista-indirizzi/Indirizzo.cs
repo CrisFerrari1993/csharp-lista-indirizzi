@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace csharp_lista_indirizzi
 {
-    internal class Indirizzo
+    public class Indirizzo
     {
         //Bonus: iterare la lista di indirizzi e risalvarli in un file.
         //creo proprietà per la classe Indirizzo
+        public Persona Utente {  get; set; } 
         public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
 
-        public Indirizzo(string street, string city, string state, string zip)
+
+
+        public Indirizzo(string nomeUtente, string cognomeUtente ,string street, string city, string state, string zip)
         {
-            
+            Utente = new(nomeUtente, cognomeUtente);
             Street = street;
             City = city;
             State = state;
@@ -26,7 +29,7 @@ namespace csharp_lista_indirizzi
 
         public override string ToString()
         {
-            return $"======================{Environment.NewLine}Street: {Street},{Environment.NewLine}City: {City}{Environment.NewLine}State: {State}{Environment.NewLine}Zip (postal code): {Zip}";
+            return $"======================{Environment.NewLine}User name: [{Utente.Nome} {Utente.Cognome}]{Environment.NewLine}Street: {Street},{Environment.NewLine}City: {City}{Environment.NewLine}State: {State}{Environment.NewLine}Zip (postal code): {Zip}";
         }
     }
 }

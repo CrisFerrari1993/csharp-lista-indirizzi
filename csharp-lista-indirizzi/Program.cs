@@ -41,12 +41,14 @@
                     //logica per inserire solo dati corretti (non proprio mega stringente...)
                     if (dato[2].Length > 1 && dato[3].Length > 1 && dato[4].Length == 2 && dato[5].Length >= 5)
                     {
+                        string nomeUtente = dato[0];
+                        string cognomeUtente = dato[1];
                         string street = dato[2];
                         string city = dato[3];
                         string state = dato[4];
                         string zip = dato[5];
 
-                        Indirizzo indirizzo = new(street, city, state, zip);
+                        Indirizzo indirizzo = new(nomeUtente, cognomeUtente, street, city, state, zip);
                         indirizzi.Add(indirizzo);
                     }  
                 }
